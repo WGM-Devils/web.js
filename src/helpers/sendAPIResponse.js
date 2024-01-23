@@ -39,4 +39,4 @@ function sendAPIResponse(code, description, contents, responseType) {
   return response;
 }
 
-export default sendAPIResponse;
+module.exports = sendAPIResponse;
