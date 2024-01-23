@@ -1,6 +1,6 @@
 // Code
 
-export default function validateAccess(req) {
+module.exports = function validateAccess(req) {
   if (req.headers["authorization"] != undefined) {
     if (req.headers["authorization"] === process.env.KEY) {
       return true;
@@ -10,4 +10,4 @@ export default function validateAccess(req) {
   } else {
     return false;
   }
-}
+};
