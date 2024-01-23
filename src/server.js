@@ -25,6 +25,9 @@ env.config();
 app.use(compression());
 app.use(cors({ credentials: true }));
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, "views/public")));
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views/pages"));
 
 mongoose.Promise = Promise;
 mongoose.connect(process.env["MONGO_URL"]);
