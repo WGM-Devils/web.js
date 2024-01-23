@@ -1,17 +1,17 @@
 // Project-Imports
 
-import {
+const {
   getAllUserEvents,
   getAllUserEventsByCreator,
   getUserEvent,
   deleteUserEvent,
   updateUserEvent,
   createUserEvent,
-} from "../controller/userEvent";
+} = require("../controller/userEvent");
 
 // Code + Exports
 
-export default (router) => {
+module.exports = (router) => {
   router.get("/userEvents/all", getAllUserEvents);
   router.get("/userEvents/all/creator=:creator", getAllUserEventsByCreator);
   router.get("/userEvents/get/id=:id/type=:type", getUserEvent);

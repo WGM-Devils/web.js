@@ -1,10 +1,10 @@
 // Project-Imports
 
-import { login, register } from "../controller/auth";
+const { register, login } = require("../controller/auth");
 
 // Exports
 
-export default (router) => {
+module.exports = (router) => {
   router.post("/auth/register", register);
   router.post("/auth/login", login);
 };

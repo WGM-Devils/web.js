@@ -1,19 +1,19 @@
 // Project-Imports
 
-import {
+const {
   createComment,
-  getComment,
-  deleteComment,
-  updateComment,
   getAllComments,
-  getAllCommentsByCreator,
+  getComment,
   getAllCommentsByPostId,
+  getAllCommentsByCreator,
+  updateComment,
+  deleteComment,
   likeComment,
-} from "../controller/comments";
+} = require("../controller/comments");
 
 // Exports
 
-export default (router) => {
+module.exports = (router) => {
   router.post("/comments/create", createComment);
   router.get("/comments/all/", getAllComments);
   router.get("/comments/get/commentId=:commentId/type=:type/", getComment);

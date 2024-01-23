@@ -1,15 +1,15 @@
 // Project-Imports
 
-import {
-  deleteUser,
+const {
   getAllUsers,
   getUser,
+  deleteUser,
   updateUser,
-} from "../controller/users";
+} = require("../controller/users");
 
 // Exports
 
-export default (router) => {
+module.exports = (router) => {
   router.get("/users/all", getAllUsers);
   router.get("/users/get/id=:id/type=:type", getUser);
   router.delete("/users/delete/id=:id", deleteUser);

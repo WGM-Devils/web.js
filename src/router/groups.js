@@ -1,18 +1,18 @@
 // Project-Imports
 
-import {
+const {
   createGroup,
-  deleteGroup,
   getGroup,
+  deleteGroup,
+  updateGroup,
   getGroupByCreator,
   joinGroup,
   leaveGroup,
-  updateGroup,
-} from "../controller/groups";
+} = require("../controller/groups");
 
 // Exports
 
-export default (router) => {
+module.exports = (router) => {
   router.post("/groups/create/type=:type", createGroup);
   router.get("/groups/get/id=:id/type=:type", getGroup);
   router.get("/groups/all", getGroup);

@@ -1,17 +1,16 @@
 // Project-Imports
 
-import {
+const {
   getAllSearchReqs,
-  getAllSearchReqsByCreator,
-  getSearchReq,
-  updateSearchReq,
   createSearchReq,
   deleteSearchReq,
-} from "../controller/searchReq";
-
+  getSearchReq,
+  getAllSearchReqsByCreator,
+  updateSearchReq,
+} = require("../controller/searchReq");
 // Exports
 
-export default (router) => {
+module.exports = (router) => {
   router.get("/searchReqs/all", getAllSearchReqs);
   router.get("/searchReqs/get/id=:id/type=:type", getSearchReq);
   router.get("/searchReqs/get/creator=:creator", getAllSearchReqsByCreator);

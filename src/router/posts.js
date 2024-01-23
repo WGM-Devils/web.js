@@ -1,19 +1,18 @@
 // Project-Imports
 
-import {
-  deletePost,
-  getAllPosts,
-  getPost,
-  updatePost,
-  createPost,
-  likePost,
-  unlikePost,
-  viewedPost,
-} from "../controller/posts";
+const {
+  getAll,
+  create,
+  deleteById,
+  updateById,
+  getById,
+  like,
+  unlike,
+  viewed,
+} = require("../controller/posts");
 
 // Exports
-
-export default (router) => {
+module.exports = (router) => {
   router.get("/posts/all", getAllPosts);
   router.get("/posts/get/id=:id/type=:type", getPost);
   router.delete("/posts/delete/postId=:postId/userId=:userId", deletePost);
