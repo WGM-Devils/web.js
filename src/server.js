@@ -40,7 +40,6 @@ server.listen(3000, () => {
     "Server running on local port 2000 with url 'http://localhost:2000/'"
   );
 });
-
+app.use("/", pages());
 app.use("/api", router());
 app.get("/", (req, res) => res.send("Hello World!"));
-app.use("/", pages());
