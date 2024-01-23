@@ -8,7 +8,7 @@ const users = require("./users");
 const auth = require("./auth");
 const posts = require("./posts");
 const groups = require("./groups");
-const userEvents = require("./userEvents");
+const userEvents = require("./userEvent");
 const comments = require("./comments");
 const searchReq = require("./search");
 
