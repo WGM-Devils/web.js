@@ -4,7 +4,7 @@ const crypto = require("crypto");
 
 // Presets
 
-const SECRET = process.env.ENCRYPTSECRET;
+const SECRET = process.env.SECRET;
 
 // Code
 
