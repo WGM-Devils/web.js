@@ -11,10 +11,10 @@ const {
 // Exports
 
 module.exports = (router) => {
-  router.get("/searchReqs/all", getAllSearchReqs);
-  router.get("/searchReqs/get/id=:id/type=:type", getSearchReq);
-  router.get("/searchReqs/get/creator=:creator", getAllSearchReqsByCreator);
-  router.delete("/searchReqs/delete/id=:id", deleteSearchReq);
+  router.get("/api/searchReqs/all", getAllSearchReqs);
+  router.get("/api/searchReqs/get/id=:id/type=:type", getSearchReq);
+  router.get("/api/searchReqs/get/creator=:creator", getAllSearchReqsByCreator);
+  router.delete("/api/searchReqs/delete/id=:id", deleteSearchReq);
   router.patch("/searchReqs/update/id=:id/type=:type", updateSearchReq);
-  router.post("/searchReqs/create/type=:type", createSearchReq);
+  router.post("/api/searchReqs/create/type=:type", createSearchReq);
 };

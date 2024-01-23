@@ -11,6 +11,7 @@ const groups = require("./groups");
 const userEvents = require("./userEvent");
 const comments = require("./comments");
 const searchReq = require("./searchReq");
+const pages = require("./pages");
 
 // Constants
 
@@ -26,5 +27,6 @@ module.exports = () => {
   userEvents(router);
   comments(router);
   searchReq(router);
+  pages(router);
   return router;
 };
