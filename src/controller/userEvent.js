@@ -1,7 +1,3 @@
-// Imports
-
-const express = require("express");
-
 // Project-Imports
 
 const sendAPIResponse = require("../helpers/sendAPIResponse");
