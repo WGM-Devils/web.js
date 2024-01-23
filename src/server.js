@@ -3,7 +3,6 @@
 const express = require("express");
 const http = require("http");
 const bodyParser = require("body-parser");
-const cookieParser = require("cookie-parser");
 const compression = require("compression");
 const mongoose = require("mongoose");
 const env = require("dotenv");
@@ -24,7 +23,6 @@ env.config();
 
 app.use(compression());
 app.use(cors({ credentials: true }));
-app.use(cookieParser());
 app.use(bodyParser.json());
 
 mongoose.Promise = Promise;
