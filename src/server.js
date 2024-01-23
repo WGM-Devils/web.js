@@ -11,6 +11,7 @@ const cors = require("cors");
 // Project-Imports
 
 const router = require("./router");
+const pages = require("./router/pages");
 
 // Presets
 
@@ -40,5 +41,6 @@ server.listen(3000, () => {
   );
 });
 
-app.use("/", router());
+app.use("/api", router());
 app.get("/", (req, res) => res.send("Hello World!"));
+app.use("/", pages());
