@@ -1,14 +1,14 @@
 // Project-Imports
 
 const {
-  getAll,
-  create,
-  deleteById,
-  updateById,
-  getById,
-  like,
-  unlike,
-  viewed,
+  getAllPosts,
+  createPost,
+  getPost,
+  deletePost,
+  updatePost,
+  viewedPost,
+  likePost,
+  unlikePost,
 } = require("../controller/posts");
 
 // Exports
