@@ -10,7 +10,7 @@ const posts = require("./posts");
 const groups = require("./groups");
 const userEvents = require("./userEvent");
 const comments = require("./comments");
-const searchReq = require("./search");
+const searchReq = require("./searchReq");
 
 // Constants
 
