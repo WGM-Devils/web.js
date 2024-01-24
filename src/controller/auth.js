@@ -25,28 +25,16 @@ const login = async (req, res) => {
         .end();
     }
 
-    const user = await getUserByEmail(email).select(
-      "+auth.salt +auth.password"
-    );
+    const user = await getUserByEmail(email).select("+auth.password");
 
     if (!user) {
       return res.sendStatus(400);
     }
 
-    const expectedHash = authentication(user.auth.salt, password);
+    const expectedHash = authentication(password);
 
     if (user.auth.password !== expectedHash) {
       return res.sendStatus(403);
-    }
-
-    const salt = random();
-
-    user.auth.salt = salt;
-
-    const savedUser = await user.save();
-
-    if (!savedUser.auth.salt === salt) {
-      return res.status(500).json(sendAPIResponse(500, "Our bad.", null, null));
     }
 
     return res
@@ -80,13 +68,11 @@ const register = async (req, res) => {
       return res.sendStatus(400);
     }
 
-    const salt = random();
     const user = await createUser({
       email,
       username,
       auth: {
-        salt,
-        password: authentication(salt, password),
+        password: authentication(password),
       },
     });
 
