@@ -45,8 +45,10 @@ const login = async (req, res) => {
 
     await user.save();
 
-    return res.status(200).json(sendAPIResponse(200, "Logged in.", null, null))
-      .end;
+    return res
+      .status(200)
+      .json(sendAPIResponse(200, "Logged in.", null, null))
+      .end();
   } catch (error) {
     console.log(error);
     res.status(500).json(sendAPIResponse(500, "Our bad.", null, null)).end();
