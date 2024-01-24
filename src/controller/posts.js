@@ -327,9 +327,9 @@ const likePost = async (req, res) => {
     }
     if (post.likes.collection.includes(userId)) {
       return res
-        .status(400)
+        .status(403)
         .json(
-          sendAPIResponse(400, "This user already liked this post.", null, null)
+          sendAPIResponse(403, "This user already liked this post.", null, null)
         )
         .end();
     }
