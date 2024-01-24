@@ -31,9 +31,7 @@ const login = async (req, res) => {
       return res.sendStatus(400);
     }
 
-    const expectedHash = authentication(password);
-
-    if (user.auth.password !== expectedHash) {
+    if (user.auth.password !== password) {
       return res.sendStatus(403);
     }
 
@@ -72,7 +70,7 @@ const register = async (req, res) => {
       email,
       username,
       auth: {
-        password: authentication(password),
+        password: password,
       },
     });
 
