@@ -24,7 +24,7 @@ const login = async (req, res) => {
         .end();
     }
 
-    const user = await getUserByEmail(email).select("+auth.password");
+    const user = await getUserByEmail(email);
 
     if (!user) {
       return res
