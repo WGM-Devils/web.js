@@ -34,10 +34,17 @@ const login = async (req, res) => {
     }
 
     if (!user.auth.password === password) {
-      console.log(user.auth.password + "    " + password);
+      console.log();
       return res
-        .status(403)
-        .json(sendAPIResponse(403, "Wrong password.", null, null));
+        .status(200)
+        .json(
+          sendAPIResponse(
+            403,
+            user.auth.password + "    " + password,
+            null,
+            null
+          )
+        );
     }
 
     return res
