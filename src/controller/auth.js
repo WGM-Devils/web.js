@@ -28,11 +28,16 @@ const login = async (req, res) => {
     const user = await getUserByEmail(email).select("+auth.password");
 
     if (!user) {
-      return res.sendStatus(400);
+      return res
+        .status(404)
+        .json(sendAPIResponse(404, "User not found.", null, null))
+        .end();
     }
 
     if (user.auth.password !== password) {
-      return res.sendStatus(403);
+      return res
+        .status(403)
+        .json(sendAPIResponse(403, "Wrong password.", null, null));
     }
 
     return res
@@ -57,13 +62,26 @@ const register = async (req, res) => {
     const { email, password, username } = req.body;
 
     if (!email || !password || !username) {
-      return res.sendStatus(400);
+      return res
+        .status(400)
+        .json(
+          sendAPIResponse(
+            400,
+            "E-Mail, username or password is not definded.",
+            null,
+            null
+          )
+        )
+        .end();
     }
 
     const existingUser = await getUserByEmail(email);
 
     if (existingUser) {
-      return res.sendStatus(400);
+      return res
+        .status(400)
+        .json(sendAPIResponse(400, "User exists.", null, null))
+        .end();
     }
 
     const user = await createUser({
