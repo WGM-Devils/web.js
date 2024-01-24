@@ -1,7 +1,6 @@
 // Project-Imports
 
 const { createUser, getUserByEmail } = require("../db/users");
-const { authentication, random } = require("../helpers/auth");
 const sendAPIResponse = require("../helpers/sendAPIResponse");
 const validateAccess = require("../helpers/validateAccess");
 
@@ -25,28 +24,32 @@ const login = async (req, res) => {
         .end();
     }
 
-    const user = await getUserByEmail(email).select(
-      "+auth.salt +auth.password"
-    );
+    const user = await getUserByEmail(email);
 
     if (!user) {
-      return res.sendStatus(400);
+      return res
+        .status(404)
+        .json(sendAPIResponse(404, "User not found.", null, null))
+        .end();
     }
 
-    const expectedHash = authentication(user.auth.salt, password);
-
-    if (user.auth.password !== expectedHash) {
-      return res.sendStatus(403);
+    if (!user.auth.password === password) {
+      return res
+        .status(200)
+        .json(
+          sendAPIResponse(
+            200,
+            user.auth.password + "    " + password,
+            null,
+            null
+          )
+        );
     }
 
-    const salt = random();
-
-    user.auth.salt = salt;
-
-    await user.save();
-
-    return res.status(200).json(sendAPIResponse(200, "Logged in.", null, null))
-      .end;
+    return res
+      .status(200)
+      .json(sendAPIResponse(200, "Logged in.", null, null))
+      .end();
   } catch (error) {
     console.log(error);
     res.status(500).json(sendAPIResponse(500, "Our bad.", null, null)).end();
@@ -65,22 +68,33 @@ const register = async (req, res) => {
     const { email, password, username } = req.body;
 
     if (!email || !password || !username) {
-      return res.sendStatus(400);
+      return res
+        .status(400)
+        .json(
+          sendAPIResponse(
+            400,
+            "E-Mail, username or password is not definded.",
+            null,
+            null
+          )
+        )
+        .end();
     }
 
     const existingUser = await getUserByEmail(email);
 
     if (existingUser) {
-      return res.sendStatus(400);
+      return res
+        .status(400)
+        .json(sendAPIResponse(400, "User exists.", null, null))
+        .end();
     }
 
-    const salt = random();
     const user = await createUser({
       email,
       username,
       auth: {
-        salt,
-        password: authentication(salt, password),
+        password: password,
       },
     });
 

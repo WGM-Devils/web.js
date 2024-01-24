@@ -325,7 +325,14 @@ const likePost = async (req, res) => {
         .json(sendAPIResponse(404, "There is no user.", null, null))
         .end();
     }
-
+    if (post.likes.collection.includes(userId)) {
+      return res
+        .status(403)
+        .json(
+          sendAPIResponse(403, "This user already liked this post.", null, null)
+        )
+        .end();
+    }
     post.likes.count++;
     post.likes.collection.push(userId);
     await updateById(postId, post);
