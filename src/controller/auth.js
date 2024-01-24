@@ -34,12 +34,11 @@ const login = async (req, res) => {
     }
 
     if (!user.auth.password === password) {
-      console.log();
       return res
         .status(200)
         .json(
           sendAPIResponse(
-            403,
+            200,
             user.auth.password + "    " + password,
             null,
             null
