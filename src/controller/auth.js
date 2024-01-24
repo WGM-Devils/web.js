@@ -1,7 +1,6 @@
 // Project-Imports
 
 const { createUser, getUserByEmail } = require("../db/users");
-const { authentication, random } = require("../helpers/auth");
 const sendAPIResponse = require("../helpers/sendAPIResponse");
 const validateAccess = require("../helpers/validateAccess");
 
@@ -34,7 +33,7 @@ const login = async (req, res) => {
         .end();
     }
 
-    if (user.auth.password !== password) {
+    if (!user.auth.password === password) {
       return res
         .status(403)
         .json(sendAPIResponse(403, "Wrong password.", null, null));
