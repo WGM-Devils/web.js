@@ -43,7 +43,11 @@ const login = async (req, res) => {
 
     user.auth.salt = salt;
 
-    await user.save();
+    const savedUser = await user.save();
+
+    if (!savedUser.auth.salt === salt) {
+      return res.status(500).json(sendAPIResponse(500, "Our bad.", null, null));
+    }
 
     return res
       .status(200)
