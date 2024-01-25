@@ -5,7 +5,7 @@ function submitCredentials(type) {
 
   if (type === "login") {
     if (!email.value || !password.value) {
-      return alert("Please fill out all fields.");
+      return alert("Bitte alle Felder ausfüllen.");
     }
 
     const data = {
@@ -30,11 +30,13 @@ function submitCredentials(type) {
         if (res.json().ok) {
           localStorage.setItem("KlingtGut", true);
           return (window.location.href = "https://klingt-gut.cyclic.app/");
+        } else if (res.json().status === 403) {
+          return alert("Ihre Anmeldedaten sind nicht richtg.");
         }
       });
   } else if (type === "register") {
     if (!email.value || !password.value || !username.value) {
-      return alert("Please fill out all fields.");
+      return alert("Bitte alle Felder ausfüllen.");
     }
 
     const data = {
