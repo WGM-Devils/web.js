@@ -20,11 +20,12 @@ body {
 .signing-picture-half {
   width: 40%;
   height: 100vh;
+  background: linear-gradient(147deg, #1f846c 27.03%, #2e56a1 98.33%);
 }
 .signing-content-half {
   width: 60%;
   height: 100vh;
-  background-color: grey;
+  background-color: white;
 }
 .signing-form {
   width: 80%;
@@ -36,6 +37,7 @@ body {
 .signing-form-title {
   font-size: 60px;
   text-align: center;
+  font-family: "Anton", sans-serif;
 }
 .signing-input {
   width: 60%;
@@ -47,11 +49,12 @@ body {
 .signing-inputlabel {
   color: black;
   width: 60%;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   margin: 5px auto;
 }
 .signing-button {
-  background-color: black;
+  background: linear-gradient(147deg, #1f846c 27.03%, #2e56a1 98.33%);
   color: white;
   font-family: Arial, Helvetica, sans-serif;
   border: none;
