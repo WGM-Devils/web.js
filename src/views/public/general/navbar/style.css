@@ -2,28 +2,78 @@ nav {
   width: 30vh;
   height: 100vh;
   background-color: white;
+  border-right: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+.account-item {
+  width: 90%;
+  margin: 10px auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 50px;
+}
+.account-item-icon {
+  height: 50px;
+  width: 50px;
   display: flex;
   justify-content: center;
+  margin: 0 10px;
+  align-items: center;
 }
-.navbar-logo-container {
-  width: 90%;
-  margin: 20px auto;
+.account-item-icon-default {
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70px;
+}
+.account-item-icon-default svg,
+.account-item-icon-custom img {
+  height: 30px;
+  width: 30px;
+  fill: black;
+  margin: auto;
+  border-radius: 50%;
+}
+.account-item-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.account-item-title {
+  font-size: 20px;
+  font-family: "Anton", sans-serif;
+}
+.account-item-subtitle {
+  font-size: 15px;
+  font-family: "Anton", sans-serif;
+}
+.account-item:hover {
+  cursor: pointer;
+}
+.navbar-separator {
+  width: 80%;
+  margin: 5px auto;
+  background-color: black;
+  height: 1px;
+  border-radius: 0.5px;
 }
 .navbar-links-container {
   width: 90%;
   margin: 20px auto;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  height: calc(100vh - 121px);
 }
 .navbar-link {
   width: 100%;
   height: 50px;
   display: flex;
   justify-content: flex-start;
+  margin: 10px 0;
 }
 .navbar-link-icon {
   height: 50px;
@@ -37,4 +87,34 @@ nav {
   height: 30px;
   width: 30px;
   fill: black;
+  margin: auto;
+}
+.navbar-link-text {
+  margin: auto 0;
+  font-size: 25px;
+  font-family: "Anton", sans-serif;
+}
+.navbar-link:hover {
+  cursor: pointer;
+}
+.navbar-link-active {
+  background: linear-gradient(147deg, #1f846c 27.03%, #2e56a1 98.33%);
+  border-radius: 25px;
+}
+.navbar-link-active .navbar-link-text {
+  color: white;
+}
+.navbar-link-active .navbar-link-icon svg {
+  fill: white;
+}
+.navbar-logo-container {
+  width: 90%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+}
+.navbar-logo-container img {
+  height: 60px;
 }
