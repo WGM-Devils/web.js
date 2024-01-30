@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login KlingtGut</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="content-body">
+      <div class="signing-half signing-picture-half"></div>
+      <div class="signing-half signing-content-half">
+        <div class="signing-form">
+          <div class="signing-form-title">Login</div>
+          <label for="email-input" class="signing-inputlabel">E-Mail</label>
+          <input
+            placeholder=""
+            type="email"
+            name="email-input"
+            class="signing-input input"
+            id="email-input"
+          />
+          <label for="password-input" class="signing-inputlabel"
+            >Passwort</label
+          >
+          <input
+            type="password"
+            name="password-input"
+            class="signing-input input"
+            id="password-input"
+          />
+          <button class="signing-button" onclick="submitCredentials('login')">
+            Login
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
