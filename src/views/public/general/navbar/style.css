@@ -100,6 +100,7 @@ nav {
 .navbar-link-active {
   background: linear-gradient(147deg, #1f846c 27.03%, #2e56a1 98.33%);
   border-radius: 25px;
+  backdrop-filter: opacity(0.4);
 }
 .navbar-link-active .navbar-link-text {
   color: white;
