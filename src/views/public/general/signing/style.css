@@ -41,7 +41,8 @@ body {
 }
 .signing-input {
   width: 60%;
-  height: 50px;
+  height: 40px;
+  padding: 5px;
   border: none;
   border-radius: 5px;
   margin: 10px auto;
