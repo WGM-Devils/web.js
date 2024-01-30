@@ -69,3 +69,14 @@ body {
 .signing-button:hover {
   cursor: pointer;
 }
+
+/* Screen Rules */
+
+@media (max-width: 800px) {
+  .signing-picture-half {
+    display: none;
+  }
+  .signing-content-half {
+    width: 100%;
+  }
+}
