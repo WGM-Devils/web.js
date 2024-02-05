@@ -5,7 +5,7 @@ function submitCredentials(type) {
 
   if (type === "login") {
     if (!email.value || !password.value) {
-      return alert("Bitte alle Felder ausfüllen.");
+      return alert("Please fill out all fields.");
     }
 
     const data = {
@@ -13,7 +13,7 @@ function submitCredentials(type) {
       password: password.value,
     };
 
-    fetch("https://klingt-gut.cyclic.app/api/auth/login", {
+    fetch("https://klingt-gut.onrender.com/api/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -28,15 +28,12 @@ function submitCredentials(type) {
       })
       .then((res) => {
         if (res.json().ok) {
-          localStorage.setItem("KlingtGut", true);
-          return (window.location.href = "https://klingt-gut.cyclic.app/");
-        } else if (res.json().status === 403) {
-          return alert("Ihre Anmeldedaten sind nicht richtg.");
+          return (window.location.href = "https://klingt-gut.onrender.com/");
         }
       });
   } else if (type === "register") {
     if (!email.value || !password.value || !username.value) {
-      return alert("Bitte alle Felder ausfüllen.");
+      return alert("Please fill out all fields.");
     }
 
     const data = {
@@ -45,7 +42,7 @@ function submitCredentials(type) {
       username: username.value,
     };
 
-    fetch("https://klingt-gut.cyclic.app/api/auth/register", {
+    fetch("https://klingt-gut.onrender.com/api/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -60,8 +57,7 @@ function submitCredentials(type) {
       })
       .then((res) => {
         if (res.json().ok) {
-          localStorage.setItem("KlingtGut", true);
-          return (window.location.href = "https://klingt-gut.cyclic.app/");
+          return (window.location.href = "https://klingt-gut.onrender.com/");
         }
       });
   }
