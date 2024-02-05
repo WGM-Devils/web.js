@@ -35,20 +35,14 @@ const login = async (req, res) => {
 
     if (!user.auth.password === password) {
       return res
-        .status(200)
-        .json(
-          sendAPIResponse(
-            200,
-            user.auth.password + "    " + password,
-            null,
-            null
-          )
-        );
+        .status(403)
+        .json(sendAPIResponse(403, "Passwort ist falsch.", null, null));
     }
 
     return res
       .status(200)
       .json(sendAPIResponse(200, "Logged in.", null, null))
+      .cookie("KlingtGut", JSON.stringify(user))
       .end();
   } catch (error) {
     console.log(error);
@@ -105,11 +99,12 @@ const register = async (req, res) => {
           201,
           "User was created.",
           {
-            users: Object.values(user),
+            users: [user],
           },
           "arr"
         )
       )
+      .cookie("KlingtGut", JSON.stringify(user))
       .end();
   } catch (error) {
     console.log(error);
