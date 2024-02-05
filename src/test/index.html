@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../views/public/general/configs/body.css" />
     <link rel="stylesheet" href="../views/public/general/navbar/style.css" />
     <link rel="stylesheet" href="../views/public/general/configs/fonts.css" />
+    <link rel="stylesheet" href="../views/public/index/style.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -129,7 +130,7 @@
         <img src="../views/public/images/klingtgutappscreen.png" alt="" />
       </div>
     </nav>
-    <dialog class="post-create" id="post-create">
+    <dialog class="post-create" id="post-dia">
       <div class="post-create-titlebar">
         <div class="post-create-title">Posten Sie jetzt auf Klingt Gut</div>
         <div class="post-create-close">
@@ -253,8 +254,107 @@
       <div class="post-send-text">Posten</div>
     </button>
     <div class="post-list">
-      <div class="post"></div>
+      <div class="post">
+        <div class="post-content">
+          <div class="post-topbar">
+            <div class="post-title">Super Post</div>
+            <div class="post-user">
+              <div class="post-user-img">
+                <div class="post-user-default"></div>
+                <img class="post-user-custom" />
+              </div>
+            </div>
+          </div>
+          <div class="post-description">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+              tincidunt, nunc nec lacinia tincidunt, nunc nec lacinia tincidunt,
+              nunc nec lacinia
+            </p>
+          </div>
+          <div class="post-embed">
+            <iframe
+              style="border-radius: 12px"
+              src="https://open.spotify.com/embed/track/71uN50XgLYyAJaSXr0TNsY?utm_source=generator"
+              width="90%"
+              height="200"
+              frameborder="0"
+              allowfullscreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe>
+          </div>
+          <div class="post-buttons">
+            <div class="post-like">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1em"
+                height="1em"
+                viewBox="0 0 48 48"
+              >
+                <defs>
+                  <linearGradient
+                    id="g1"
+                    gradientUnits="userSpaceOnUse"
+                    x1="12.33%"
+                    y1="-8.01%"
+                    x2="87.67%"
+                    y2="108.01%"
+                  >
+                    <stop offset=".27" stop-color="#1f846c" />
+                    <stop offset=".983" stop-color="#2e56a1" />
+                  </linearGradient>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#g1)" />
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="4"
+                  d="M15 8C8.925 8 4 12.925 4 19c0 11 13 21 20 23.326C31 40 44 30 44 19c0-6.075-4.925-11-11-11c-3.72 0-7.01 1.847-9 4.674A10.987 10.987 0 0 0 15 8"
+                />
+              </svg>
+            </div>
+            <div class="post-views">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1em"
+                height="1em"
+                viewBox="0 0 48 48"
+              >
+                <defs>
+                  <linearGradient
+                    id="g1"
+                    gradientUnits="userSpaceOnUse"
+                    x1="12.33%"
+                    y1="-8.01%"
+                    x2="87.67%"
+                    y2="108.01%"
+                  >
+                    <stop offset=".27" stop-color="#1f846c" />
+                    <stop offset=".983" stop-color="#2e56a1" />
+                  </linearGradient>
+                </defs>
+                <rect
+                  x="2"
+                  y="2"
+                  width="44"
+                  height="44"
+                  fill="none"
+                  stroke="url(#g1)"
+                  stroke-width="4"
+                />
+                <path fill="none" stroke="currentColor" ... />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="../views/public/general/navbar/script.js"></script>
+    <script src="../views/public/index/dialog.js">
+      document.getElementById("post-dia").close();
+    </script>
   </body>
 </html>

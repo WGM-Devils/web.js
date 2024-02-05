@@ -1,3 +1,6 @@
+window.onload = () => {
+  document.getElementById("post-dia").close();
+};
 function createPost() {
   const title = document.getElementById("post-creation-title").value;
   const content = document.getElementById("post-creation-content").value;
@@ -28,5 +31,10 @@ function createPost() {
     });
 }
 function closeModal() {
-  document.getElementById("post-create").closeModal();
+  document.getElementById("post-dia").close();
 }
+document
+  .getElementById("post-dia")
+  .addEventListener("click", (ev) =>
+    document.getElementById("post-dia").close()
+  );
