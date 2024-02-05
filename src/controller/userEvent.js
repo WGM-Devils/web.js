@@ -87,7 +87,7 @@ const createUserEvent = async (req, res) => {
           sendAPIResponse(
             200,
             "Your created userEvent...",
-            { userEvents: Object.values(userEvent) },
+            { userEvents: [userEvent] },
             "arr"
           )
         )
@@ -171,7 +171,7 @@ const updateUserEvent = async (req, res) => {
           sendAPIResponse(
             200,
             "Your updated userEvent is ready.",
-            { userEvents: Object.values(userEvent) },
+            { userEvents: [userEvent] },
             "arr"
           )
         )
@@ -219,7 +219,7 @@ const getUserEvent = async (req, res) => {
           sendAPIResponse(
             200,
             "Your requested userEvent.",
-            { userEvents: Object.values(userEvent) },
+            { userEvents: [userEvent] },
             "arr"
           )
         )

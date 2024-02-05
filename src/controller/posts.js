@@ -103,14 +103,7 @@ const createPost = async (req, res) => {
     user.posts.collection.push(post._id);
     return res
       .status(201)
-      .json(
-        sendAPIResponse(
-          201,
-          "Post created.",
-          { posts: Object.values(post) },
-          "arr"
-        )
-      )
+      .json(sendAPIResponse(201, "Post created.", { posts: [post] }, "arr"))
       .end();
   } catch (error) {
     console.log(error);
@@ -198,7 +191,7 @@ const getPost = async (req, res) => {
           sendAPIResponse(
             200,
             "Your requested resource.",
-            { posts: Object.values(post) },
+            { posts: [post] },
             "arr"
           )
         )
@@ -257,12 +250,7 @@ const updatePost = async (req, res) => {
       return res
         .status(200)
         .json(
-          sendAPIResponse(
-            200,
-            "Your updated post.",
-            { posts: Object.values(post) },
-            "arr"
-          )
+          sendAPIResponse(200, "Your updated post.", { posts: [post] }, "arr")
         )
         .end();
     }

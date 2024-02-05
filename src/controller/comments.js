@@ -217,7 +217,7 @@ const getComment = async (req, res) => {
           sendAPIResponse(
             200,
             "Comment fetched.",
-            { comments: Object.values(comment) },
+            { comments: [comment] },
             null
           )
         )

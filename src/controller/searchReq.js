@@ -116,7 +116,7 @@ const getSearchReq = async (req, res) => {
           sendAPIResponse(
             200,
             "Your requested resource.",
-            { searchReq: Object.values(searchReq) },
+            { searchReq: [searchReq] },
             "arr"
           )
         )
@@ -157,12 +157,7 @@ const createSearchReq = async (req, res) => {
       return res
         .status(200)
         .json(
-          sendAPIResponse(
-            200,
-            "Created.",
-            { searchReq: Object.values(searchReq) },
-            "arr"
-          )
+          sendAPIResponse(200, "Created.", { searchReq: [searchReq] }, "arr")
         )
         .end();
     }
@@ -209,12 +204,7 @@ const updateSearchReq = async (req, res) => {
       return res
         .status(200)
         .json(
-          sendAPIResponse(
-            200,
-            "Updated.",
-            { searchReq: Object.values(searchReq) },
-            "arr"
-          )
+          sendAPIResponse(200, "Updated.", { searchReq: [searchReq] }, "arr")
         )
         .end();
     }

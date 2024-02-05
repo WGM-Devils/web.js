@@ -98,7 +98,7 @@ const getUser = async (req, res) => {
           sendAPIResponse(
             200,
             "Your requested user...",
-            { users: Object.values(user) },
+            { users: [user] },
             "arr"
           )
         )
@@ -166,12 +166,7 @@ const updateUser = async (req, res) => {
       return res
         .status(200)
         .json(
-          sendAPIResponse(
-            200,
-            "The updated user...",
-            { users: Object.values(user) },
-            "arr"
-          )
+          sendAPIResponse(200, "The updated user...", { users: [user] }, "arr")
         )
         .end();
     }

@@ -56,7 +56,7 @@ const createGroup = async (req, res) => {
           sendAPIResponse(
             201,
             "Group created successfully.",
-            { groups: Object.values(group) },
+            { groups: [group] },
             "arr"
           )
         )
@@ -139,7 +139,7 @@ const getGroup = async (req, res) => {
           sendAPIResponse(
             200,
             "Your requested group.",
-            { groups: Object.values(group) },
+            { groups: [group] },
             "arr"
           )
         )
@@ -363,12 +363,7 @@ const updateGroup = async (req, res) => {
       return res
         .status(200)
         .json(
-          sendAPIResponse(
-            200,
-            "Updated group.",
-            { groups: Object.values(group) },
-            "arr"
-          )
+          sendAPIResponse(200, "Updated group.", { groups: [group] }, "arr")
         )
         .end();
     }
