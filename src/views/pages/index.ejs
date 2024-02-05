@@ -14,7 +14,7 @@
     <nav>
       <div class="account-item" onclick="openCredentials()">
         <div class="account-item-icon">
-          <div class="account-item-icon-default">
+          <div class="account-item-icon-default" id="account-icon-default">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -30,11 +30,13 @@
               />
             </svg>
           </div>
-          <div class="account-item-icon-custom"></div>
+          <div class="account-item-icon-custom" id="account-icon-custom"></div>
         </div>
         <div class="account-item-content">
-          <div class="account-item-title">Anmelden</div>
-          <div class="account-item-subtitle">oder registrieren</div>
+          <div class="account-item-title" id="account-name">Anmelden</div>
+          <div class="account-item-subtitle" id="account-subtitle">
+            oder registrieren
+          </div>
         </div>
       </div>
       <div class="navbar-separator"></div>
@@ -258,5 +260,6 @@
     </div>
     <script src="/general/navbar/script.js"></script>
     <script src="/index/dialog.js"></script>
+    <script src="/index/script.js"></script>
   </body>
 </html>
