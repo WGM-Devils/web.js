@@ -13,7 +13,7 @@ function submitCredentials(type) {
       password: password.value,
     };
 
-    fetch("https://klingt-gut.cyclic.app/api/auth/login", {
+    fetch("https://klingt-gut.onrender.com/api/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -28,8 +28,7 @@ function submitCredentials(type) {
       })
       .then((res) => {
         if (res.json().ok) {
-          localStorage.setItem("KlingtGut", true);
-          return (window.location.href = "https://klingt-gut.cyclic.app/");
+          return (window.location.href = "https://klingt-gut.onrender.com/");
         }
       });
   } else if (type === "register") {
@@ -43,7 +42,7 @@ function submitCredentials(type) {
       username: username.value,
     };
 
-    fetch("https://klingt-gut.cyclic.app/api/auth/register", {
+    fetch("https://klingt-gut.onrender.com/api/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -59,7 +58,7 @@ function submitCredentials(type) {
       .then((res) => {
         if (res.json().ok) {
           localStorage.setItem("KlingtGut", true);
-          return (window.location.href = "https://klingt-gut.cyclic.app/");
+          return (window.location.href = "https://klingt-gut.onrender.com/");
         }
       });
   }
