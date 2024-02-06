@@ -33,7 +33,7 @@ const getAllPosts = async (req, res) => {
           {
             posts: posts,
           },
-          "json"
+          "arr"
         )
       )
       .end();
