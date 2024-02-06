@@ -22,12 +22,13 @@ function submitCredentials(type) {
       body: JSON.stringify(data),
     })
       .then((res) => {
-        if (res.json().ok) {
+        if (res.ok) {
           return res;
         }
       })
       .then((res) => {
-        if (res.json().ok) {
+        if (res.ok) {
+          if (!res.json()) return;
           return (window.location.href = "https://klingt-gut.onrender.com/");
         }
       });
