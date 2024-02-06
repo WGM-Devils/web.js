@@ -90,7 +90,7 @@ const register = async (req, res) => {
         password: password,
       },
     });
-
+    // TODO: Cookies überprüfen und umgestalten, ohne schlechten String
     return res
       .status(201)
       .json(
