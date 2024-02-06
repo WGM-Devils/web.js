@@ -41,7 +41,6 @@ const login = async (req, res) => {
 
     return res
       .status(200)
-      .cookie("KlingtGut", JSON.stringify(user))
       .json(sendAPIResponse(200, "Logged in.", null, null))
       .end();
   } catch (error) {
@@ -94,7 +93,6 @@ const register = async (req, res) => {
 
     return res
       .status(201)
-      .cookie("KlingtGut", JSON.stringify(user))
       .json(
         sendAPIResponse(
           201,
