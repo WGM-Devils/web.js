@@ -50,7 +50,43 @@ body {
 .post-topbar {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
+}
+.post-sep {
+  font-size: 20px;
+  font-family: "Anton", sans-serif;
+  margin: auto 20px;
+}
+.post-user {
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.post-user-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: auto 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  > div {
+    height: 30px;
+    width: 30px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > svg {
+      height: 30px;
+      width: 30px;
+      margin: auto;
+    }
+  }
 }
 .post-title {
   font-size: 2em;
@@ -66,4 +102,49 @@ body {
   font-size: 1.24em;
   font-family: "Anton", sans-serif;
   margin: 0;
+}
+.post-embed {
+  width: 90%;
+  margin: 5px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.post-buttons {
+  width: 70%;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: auto 0;
+  border-radius: 10px;
+  box-shadow: 0 3px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(147deg, #1f846c 27.03%, #2e56a1 98.33%);
+}
+.post-button {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 10px;
+  padding: 10px;
+  > svg {
+    height: 20px;
+    width: 20px;
+    margin: auto;
+    fill: white;
+  }
+}
+.post-button-text {
+  font-size: 15px;
+  font-family: "Sofia";
+  color: white;
+  margin: auto 10px;
+}
+.post-button-clickable:hover > svg {
+  scale: 1.5;
+  transition: 0.2s;
+  cursor: pointer;
 }
