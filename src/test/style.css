@@ -14,7 +14,7 @@ body {
   overflow-y: scroll;
 }
 .post-list::-webkit-scrollbar {
-  width: 3px;
+  width: 10px;
 }
 .post-list::-webkit-scrollbar-track {
   background: transparent; /* macht die Leiste unsichtbar */
@@ -66,4 +66,76 @@ body {
   font-size: 1.24em;
   font-family: "Anton", sans-serif;
   margin: 0;
+}
+.post-embed {
+  width: 90%;
+  margin: 20px auto -20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.post-buttons {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  margin: -10px auto;
+  background: linear-gradient(147deg, #1f846c 27.03%, #2e56a1 98.33%);
+  border-radius: 10px;
+  box-shadow: 0 4px 1px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+}
+.post-like {
+  height: 40px;
+  padding: 0 10px;
+  display: flex;
+  margin: auto 0;
+  > svg {
+    width: 20px;
+    height: 20px;
+    margin: auto;
+    fill: white;
+  }
+  > svg:hover {
+    cursor: pointer;
+  }
+}
+.like-fill {
+  display: none;
+}
+.post-views {
+  height: 40px;
+  padding: 0 10px;
+  display: flex;
+  margin: auto 0;
+  > svg {
+    width: 20px;
+    height: 20px;
+    margin: auto 5px;
+    fill: white;
+  }
+  > div {
+    margin: auto;
+    font-size: 15px;
+    font-family: "Anton";
+    color: white;
+  }
+}
+.post-comment {
+  height: 40px;
+  padding: 0 10px;
+  display: flex;
+  margin: auto 0;
+  > svg {
+    width: 20px;
+    height: 20px;
+    margin: auto 5px;
+    fill: white;
+  }
+  > div {
+    margin: auto;
+    font-size: 15px;
+    font-family: "Anton";
+    color: white;
+  }
 }
