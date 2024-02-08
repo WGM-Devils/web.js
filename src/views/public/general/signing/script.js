@@ -29,6 +29,7 @@ function submitCredentials(type) {
       .then((res) => {
         if (res.ok) {
           if (!res.json()) return;
+          console.log(res);
           const user = res.json().response.contents.users[0];
           localStorage.setItem("KlingtGut", JSON.stringify(user));
           return (window.location.href = "https://klingt-gut.onrender.com/");
