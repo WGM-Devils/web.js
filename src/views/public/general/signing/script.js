@@ -29,6 +29,8 @@ function submitCredentials(type) {
       .then((res) => {
         if (res.ok) {
           if (!res.json()) return;
+          const user = res.json().response.contents.users[0];
+          localStorage.setItem("KlingtGut", JSON.stringify(user));
           return (window.location.href = "https://klingt-gut.onrender.com/");
         }
       });
@@ -58,6 +60,8 @@ function submitCredentials(type) {
       })
       .then((res) => {
         if (res.json().ok) {
+          const user = res.json().response.contents.users[0];
+          localStorage.setItem("KlingtGut", JSON.stringify(user));
           return (window.location.href = "https://klingt-gut.onrender.com/");
         }
       });
