@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../views/public/index/style.css" />
     <link rel="stylesheet" href="../views/public/general/post/style.css" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="../views/public/images/klingtgutappscreen.png" />
   </head>
   <body>
     <nav>
@@ -305,10 +306,52 @@
             ></iframe>
           </div>
           <div class="post-buttons">
-            <div class="post-button post-button-clickable">
+            <div
+              class="post-button post-button-clickable"
+              onclick="like('string')"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-heart"
+                id="unliked-icon-"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-heart-fill liked-icon"
+                id="liked-icon-"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"
+                />
+              </svg>
               <div class="post-button-text">11</div>
             </div>
             <div class="post-button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-bar-chart-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1z"
+                />
+              </svg>
               <div class="post-button-text">11</div>
             </div>
           </div>
@@ -316,8 +359,9 @@
       </div>
     </div>
     <script src="../views/public/general/navbar/script.js"></script>
-    <script src="../views/public/index/dialog.js">
-      document.getElementById("post-dia").close();
-    </script>
+    <script src="../views/public/index/dialog.js"></script>
+    <script src="../views/public/general/post/like.js" type="module"></script>
+    <script src="../views/public/general/post/unlike.js" type="module"></script>
+    <script src="../views/public/general/post/view.js" type="module"></script>
   </body>
 </html>
