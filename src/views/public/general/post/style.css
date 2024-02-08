@@ -168,3 +168,6 @@
   transition: 0.2s;
   cursor: pointer;
 }
+.liked-icon {
+  display: none;
+}
