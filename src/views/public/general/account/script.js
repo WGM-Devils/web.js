@@ -32,8 +32,7 @@ window.onload = () => {
       if (!data.ok) return;
 
       const user = data.response.contents;
-      user.username &&
-        (accountName.innerHTML = user.username) &&
-        (accountSubtitle.innerHTML = "Profil bearbeiten");
+      accountName.innerHTML = user.username;
+      accountSubtitle.innerHTML = "Profil bearbeiten";
     });
 };
