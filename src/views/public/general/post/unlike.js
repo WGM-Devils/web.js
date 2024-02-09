@@ -1,4 +1,4 @@
-export default function like(postId) {
+export default function unlike(postId) {
   fetch("https://klingt-gut.onrender.com/api/post/unlike", {
     method: "POST",
     headers: {
