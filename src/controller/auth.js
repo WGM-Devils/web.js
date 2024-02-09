@@ -20,7 +20,14 @@ const login = async (req, res) => {
     if (!email || !password) {
       return res
         .status(400)
-        .json(sendAPIResponse(400, "Check your request once more.", null, null))
+        .json(
+          sendAPIResponse(
+            400,
+            "Im Request Body muss eine email Eigenschaft sowie eine password Eigenschaft vorhanden sein.",
+            null,
+            null
+          )
+        )
         .end();
     }
 
@@ -29,23 +36,40 @@ const login = async (req, res) => {
     if (!user) {
       return res
         .status(404)
-        .json(sendAPIResponse(404, "User not found.", null, null))
+        .json(
+          sendAPIResponse(
+            404,
+            "Diese E-Mail gehört zu keinem Nutzer Account in unserer Datenbank.",
+            null,
+            null
+          )
+        )
         .end();
     }
 
     if (user.auth.password !== password) {
       return res
         .status(403)
-        .json(sendAPIResponse(403, "Passwort ist falsch.", null, null));
+        .json(
+          sendAPIResponse(
+            403,
+            "Bitte überprüfen Sie das Passwort nochmal.",
+            null,
+            null
+          )
+        );
     }
 
     return res
       .status(200)
-      .json(sendAPIResponse(200, "Logged in.", { users: [user] }, "arr"))
+      .json(sendAPIResponse(200, "Eingeloggt.", { users: [user] }, "arr"))
       .end();
   } catch (error) {
     console.log(error);
-    res.status(500).json(sendAPIResponse(500, "Our bad.", null, null)).end();
+    res
+      .status(500)
+      .json(sendAPIResponse(500, "Unser Fehler...", null, null))
+      .end();
   }
 };
 

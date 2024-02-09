@@ -29,23 +29,59 @@ const createComment = async (req, res) => {
     if (!post) {
       return res
         .status(404)
-        .json(sendAPIResponse(404, "Post not found.", null, null))
+        .json(
+          sendAPIResponse(
+            404,
+            "Kein Post mit dieser postId gefunden.",
+            null,
+            null
+          )
+        )
         .end();
     }
 
     const { userId, content } = req.body;
+
+    if (!userId || !content) {
+      return res
+        .status(400)
+        .json(
+          sendAPIResponse(
+            400,
+            "Im Request Body muss eine userId Eigenschaft sowie eine content Eigenschaft vorhanden sein.",
+            null,
+            null
+          )
+        )
+        .end();
+    }
+
     const user = await getUserById(userId);
     if (!user) {
       return res
         .status(404)
-        .json(sendAPIResponse(404, "User not found.", null, null))
+        .json(
+          sendAPIResponse(
+            404,
+            "Kein Nutzer mit der angegeben Id gefunden.",
+            null,
+            null
+          )
+        )
         .end();
     }
 
     if (!post.comments.allowed) {
       return res
         .status(403)
-        .json(sendAPIResponse(403, "Comments not allowed.", null, null))
+        .json(
+          sendAPIResponse(
+            403,
+            "Die Kommentare unter diesem Code sind deaktiviert.",
+            null,
+            null
+          )
+        )
         .end();
     }
 
@@ -67,13 +103,13 @@ const createComment = async (req, res) => {
 
     return res
       .status(201)
-      .json(sendAPIResponse(201, "Comment created.", null, null))
+      .json(sendAPIResponse(201, "Kommentiert.", null, null))
       .end();
   } catch (error) {
     console.log(error);
     return res
       .status(500)
-      .json(sendAPIResponse(500, "Our fault.", null, null))
+      .json(sendAPIResponse(500, "Unser Fehler...", null, null))
       .end();
   }
 };
@@ -92,7 +128,9 @@ const deleteComment = async (req, res) => {
     if (!comment) {
       return res
         .status(404)
-        .json(sendAPIResponse(404, "Comment not found.", null, null))
+        .json(
+          sendAPIResponse(404, "Dieser Kommentar existiert nicht.", null, null)
+        )
         .end();
     }
 
@@ -100,7 +138,9 @@ const deleteComment = async (req, res) => {
     if (!post) {
       return res
         .status(404)
-        .json(sendAPIResponse(404, "Post not found.", null, null))
+        .json(
+          sendAPIResponse(404, "Der Post ist nicht auffindbar.", null, null)
+        )
         .end();
     }
 
@@ -108,13 +148,27 @@ const deleteComment = async (req, res) => {
     if (!user) {
       return res
         .status(404)
-        .json(sendAPIResponse(404, "User not found.", null, null))
+        .json(
+          sendAPIResponse(
+            404,
+            "Hinter dieser Id steckt kein Nutzer",
+            null,
+            null
+          )
+        )
         .end();
     }
     if (comment.creator !== userId) {
       return res
         .status(403)
-        .json(sendAPIResponse(403, "Not allowed.", null, null))
+        .json(
+          sendAPIResponse(
+            403,
+            "Die Id des Kommentar Autors stimmt nicht mit der angegeben Id überein.",
+            null,
+            null
+          )
+        )
         .end();
     }
 
@@ -134,13 +188,13 @@ const deleteComment = async (req, res) => {
 
     return res
       .status(204)
-      .json(sendAPIResponse(204, "Comment deleted.", null, null))
+      .json(sendAPIResponse(204, "Der Kommentar wurde gelöscht.", null, null))
       .end();
   } catch (error) {
     console.log(error);
     return res
       .status(500)
-      .json(sendAPIResponse(500, "Our fault.", null, null))
+      .json(sendAPIResponse(500, "Unser Fehler.", null, null))
       .end();
   }
 };
@@ -159,7 +213,14 @@ const updateComment = async (req, res) => {
     if (!comment) {
       return res
         .status(404)
-        .json(sendAPIResponse(404, "Comment not found.", null, null))
+        .json(
+          sendAPIResponse(
+            404,
+            "Der Kommentar konnte nicht gefunden werden.",
+            null,
+            null
+          )
+        )
         .end();
     }
 
@@ -167,13 +228,27 @@ const updateComment = async (req, res) => {
     if (!user) {
       return res
         .status(404)
-        .json(sendAPIResponse(404, "User not found.", null, null))
+        .json(
+          sendAPIResponse(
+            404,
+            "Hinter dieser Id steckt leider kein Nutzer.",
+            null,
+            null
+          )
+        )
         .end();
     }
     if (comment.creator !== userId) {
       return res
         .status(403)
-        .json(sendAPIResponse(403, "Not allowed.", null, null))
+        .json(
+          sendAPIResponse(
+            403,
+            "Die Id, die Sie gegeben haben, ist nicht die selbe wie die des Autors.",
+            null,
+            null
+          )
+        )
         .end();
     }
 
@@ -183,13 +258,13 @@ const updateComment = async (req, res) => {
 
     return res
       .status(204)
-      .json(sendAPIResponse(204, "Comment updated.", null, null))
+      .json(sendAPIResponse(204, "Kommentar überarbeitet.", null, null))
       .end();
   } catch (error) {
     console.log(error);
     return res
       .status(500)
-      .json(sendAPIResponse(500, "Our fault.", null, null))
+      .json(sendAPIResponse(500, "Unser Fehler.", null, null))
       .end();
   }
 };
@@ -201,14 +276,21 @@ const getComment = async (req, res) => {
     if (!comment) {
       return res
         .status(404)
-        .json(sendAPIResponse(404, "Comment not found.", null, null))
+        .json(
+          sendAPIResponse(
+            404,
+            "Dein Kommentar konnte nicht gefunden werden.",
+            null,
+            null
+          )
+        )
         .end();
     }
 
     if (type === "json") {
       return res
         .status(200)
-        .json(sendAPIResponse(200, "Comment fetched.", comment, "json"))
+        .json(sendAPIResponse(200, "Hier ist dein Kommentar.", comment, "json"))
         .end();
     } else {
       return res
@@ -216,7 +298,7 @@ const getComment = async (req, res) => {
         .json(
           sendAPIResponse(
             200,
-            "Comment fetched.",
+            "Hier ist dein Kommentar.",
             { comments: [comment] },
             null
           )
@@ -227,7 +309,7 @@ const getComment = async (req, res) => {
     console.log(error);
     return res
       .status(500)
-      .json(sendAPIResponse(500, "Our fault.", null, null))
+      .json(sendAPIResponse(500, "Unser Fehler.", null, null))
       .end();
   }
 };
@@ -237,21 +319,33 @@ const getAllComments = async (req, res) => {
     if (!comments) {
       return res
         .status(404)
-        .json(sendAPIResponse(404, "Comments not found.", null, null))
+        .json(
+          sendAPIResponse(
+            404,
+            "Unsere Datenbank scheint leer zu sein.",
+            null,
+            null
+          )
+        )
         .end();
     }
 
     return res
       .status(200)
       .json(
-        sendAPIResponse(200, "Comments fetched.", { comments: comments }, "arr")
+        sendAPIResponse(
+          200,
+          "Alle Kommentare für sie bereit.",
+          { comments: comments },
+          "arr"
+        )
       )
       .end();
   } catch (error) {
     console.log(error);
     return res
       .status(500)
-      .json(sendAPIResponse(500, "Our fault.", null, null))
+      .json(sendAPIResponse(500, "Unser Fehler.", null, null))
       .end();
   }
 };
@@ -263,21 +357,33 @@ const getAllCommentsByCreator = async (req, res) => {
     if (!comments) {
       return res
         .status(404)
-        .json(sendAPIResponse(404, "Comments not found.", null, null))
+        .json(
+          sendAPIResponse(
+            404,
+            "Kommentare des Nutzers nicht gefunden.",
+            null,
+            null
+          )
+        )
         .end();
     }
 
     return res
       .status(200)
       .json(
-        sendAPIResponse(200, "Comments fetched.", { comments: comments }, "arr")
+        sendAPIResponse(
+          200,
+          "Hier sind alle Kommentare des Nutzers.",
+          { comments: comments },
+          "arr"
+        )
       )
       .end();
   } catch (error) {
     console.log(error);
     return res
       .status(500)
-      .json(sendAPIResponse(500, "Our fault.", null, null))
+      .json(sendAPIResponse(500, "Unser Fehler.", null, null))
       .end();
   }
 };
@@ -289,21 +395,33 @@ const getAllCommentsByPostId = async (req, res) => {
     if (!comments) {
       return res
         .status(404)
-        .json(sendAPIResponse(404, "Comments not found.", null, null))
+        .json(
+          sendAPIResponse(
+            404,
+            "Unter diesem Post scheinen keine Kommentare sein.",
+            null,
+            null
+          )
+        )
         .end();
     }
 
     return res
       .status(200)
       .json(
-        sendAPIResponse(200, "Comments fetched.", { comments: comments }, "arr")
+        sendAPIResponse(
+          200,
+          "Alle Kommentare unter Ihrem Post.",
+          { comments: comments },
+          "arr"
+        )
       )
       .end();
   } catch (error) {
     console.log(error);
     return res
       .status(500)
-      .json(sendAPIResponse(500, "Our fault.", null, null))
+      .json(sendAPIResponse(500, "Unser Fehler.", null, null))
       .end();
   }
 };
@@ -322,7 +440,14 @@ const likeComment = async (req, res) => {
     if (!comment) {
       return res
         .status(404)
-        .json(sendAPIResponse(404, "Comment not found.", null, null))
+        .json(
+          sendAPIResponse(
+            404,
+            "Kommentar konnte nicht gefunden werden.",
+            null,
+            null
+          )
+        )
         .end();
     }
 
@@ -330,7 +455,14 @@ const likeComment = async (req, res) => {
     if (!user) {
       return res
         .status(404)
-        .json(sendAPIResponse(404, "User not found.", null, null))
+        .json(
+          sendAPIResponse(
+            404,
+            "Der Autor scheint nicht zu existieren.",
+            null,
+            null
+          )
+        )
         .end();
     }
 
@@ -344,13 +476,13 @@ const likeComment = async (req, res) => {
 
     return res
       .status(204)
-      .json(sendAPIResponse(204, "Comment liked.", null, null))
+      .json(sendAPIResponse(204, "Kommentar wurde geliked.", null, null))
       .end();
   } catch (error) {
     console.log(error);
     return res
       .status(500)
-      .json(sendAPIResponse(500, "Our fault.", null, null))
+      .json(sendAPIResponse(500, "Unser Fehler.", null, null))
       .end();
   }
 };
@@ -369,7 +501,14 @@ const unlikeComment = async (req, res) => {
     if (!comment) {
       return res
         .status(404)
-        .json(sendAPIResponse(404, "Comment not found.", null, null))
+        .json(
+          sendAPIResponse(
+            404,
+            "Kommentar scheint nicht zu existieren.",
+            null,
+            null
+          )
+        )
         .end();
     }
 
@@ -377,7 +516,14 @@ const unlikeComment = async (req, res) => {
     if (!user) {
       return res
         .status(404)
-        .json(sendAPIResponse(404, "User not found.", null, null))
+        .json(
+          sendAPIResponse(
+            404,
+            "Nutzer konnte nicht gefunden werden.",
+            null,
+            null
+          )
+        )
         .end();
     }
 
@@ -395,13 +541,13 @@ const unlikeComment = async (req, res) => {
 
     return res
       .status(204)
-      .json(sendAPIResponse(204, "Comment unliked.", null, null))
+      .json(sendAPIResponse(204, "Kommentar unliked.", null, null))
       .end();
   } catch (error) {
     console.log(error);
     return res
       .status(500)
-      .json(sendAPIResponse(500, "Our fault.", null, null))
+      .json(sendAPIResponse(500, "Unser Fehler.", null, null))
       .end();
   }
 };

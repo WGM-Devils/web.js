@@ -38,27 +38,20 @@ const createGroup = async (req, res) => {
     if (!group) {
       return res
         .status(500)
-        .json(sendAPIResponse(500, "Our fault.", null, null))
+        .json(sendAPIResponse(500, "Unser Fehler.", null, null))
         .end();
     }
 
     if (type === "json") {
       return res
         .status(201)
-        .json(
-          sendAPIResponse(201, "Group created successfully.", group, "json")
-        )
+        .json(sendAPIResponse(201, "Gruppe wurde erstellt.", group, "json"))
         .end();
     } else {
       return res
         .status(201)
         .json(
-          sendAPIResponse(
-            201,
-            "Group created successfully.",
-            { groups: [group] },
-            "arr"
-          )
+          sendAPIResponse(201, "Gruppe erstellt.", { groups: [group] }, "arr")
         )
         .end();
     }
@@ -66,7 +59,7 @@ const createGroup = async (req, res) => {
     console.log(error);
     return res
       .status(500)
-      .json(sendAPIResponse(500, "Our fault.", null, null))
+      .json(sendAPIResponse(500, "Unser Fehler.", null, null))
       .end();
   }
 };
@@ -83,7 +76,7 @@ const getAllGroups = async (req, res) => {
     if (!groups) {
       return res
         .status(404)
-        .json(sendAPIResponse(404, "No groups found.", null, null))
+        .json(sendAPIResponse(404, "Keine Gruppe gefunden.", null, null))
         .end();
     }
     return res
@@ -91,7 +84,7 @@ const getAllGroups = async (req, res) => {
       .json(
         sendAPIResponse(
           200,
-          "Enjoy the contents you requested",
+          "Hier sind alle unsere Gruppen.",
           {
             groups: groups,
           },
@@ -103,7 +96,7 @@ const getAllGroups = async (req, res) => {
     console.log(error);
     return res
       .status(500)
-      .json(sendAPIResponse(500, "Our fault.", null, null))
+      .json(sendAPIResponse(500, "Unser Fehler.", null, null))
       .end();
   }
 };
@@ -123,14 +116,28 @@ const getGroup = async (req, res) => {
     if (!group) {
       return res
         .status(404)
-        .json(sendAPIResponse(404, "No group found.", null, null))
+        .json(
+          sendAPIResponse(
+            404,
+            "Keine Gruppe unter der Id gefunden.",
+            null,
+            null
+          )
+        )
         .end();
     }
 
     if (type === "json") {
       return res
         .status(200)
-        .json(sendAPIResponse(200, "Your requested group.", group, "json"))
+        .json(
+          sendAPIResponse(
+            200,
+            "Ihre angefragte Gruppe ist bereit.",
+            group,
+            "json"
+          )
+        )
         .end();
     } else {
       return res
@@ -138,7 +145,7 @@ const getGroup = async (req, res) => {
         .json(
           sendAPIResponse(
             200,
-            "Your requested group.",
+            "Ihre angefragte Gruppe...",
             { groups: [group] },
             "arr"
           )
@@ -149,7 +156,7 @@ const getGroup = async (req, res) => {
     console.log(error);
     return res
       .status(500)
-      .json(sendAPIResponse(500, "Our fault.", null, null))
+      .json(sendAPIResponse(500, "Unser Fehler.", null, null))
       .end();
   }
 };
@@ -169,7 +176,14 @@ const getGroupByCreator = async (req, res) => {
     if (!user) {
       return res
         .status(404)
-        .json(sendAPIResponse(404, "No user found.", null, null))
+        .json(
+          sendAPIResponse(
+            404,
+            "Der Autor konnte nicht gefunden werden.",
+            null,
+            null
+          )
+        )
         .end();
     }
 
@@ -178,19 +192,33 @@ const getGroupByCreator = async (req, res) => {
     if (!groups) {
       return res
         .status(404)
-        .json(sendAPIResponse(404, "No groups found.", null, null))
+        .json(
+          sendAPIResponse(
+            404,
+            "Der Nutzer scheint keine Gruppe zu besitzen.",
+            null,
+            null
+          )
+        )
         .end();
     }
 
     return res
       .status(200)
-      .json(sendAPIResponse(200, "Your requested groups.", groups, "arr"))
+      .json(
+        sendAPIResponse(
+          200,
+          "Alle Gruppen, die Ihr Nutzer erstellt hat.",
+          groups,
+          "arr"
+        )
+      )
       .end();
   } catch (error) {
     console.log(error);
     return res
       .status(500)
-      .json(sendAPIResponse(500, "Our fault.", null, null))
+      .json(sendAPIResponse(500, "Unser Fehler.", null, null))
       .end();
   }
 };
@@ -210,7 +238,14 @@ const joinGroup = async (req, res) => {
     if (!group) {
       return res
         .status(404)
-        .json(sendAPIResponse(404, "No group found.", null, null))
+        .json(
+          sendAPIResponse(
+            404,
+            "Die Gruppe scheint nicht zu existieren.",
+            null,
+            null
+          )
+        )
         .end();
     }
 
@@ -219,7 +254,7 @@ const joinGroup = async (req, res) => {
     if (!user) {
       return res
         .status(404)
-        .json(sendAPIResponse(404, "No user found.", null, null))
+        .json(sendAPIResponse(404, "Kein Nutzer gefunden.", null, null))
         .end();
     }
 
@@ -230,13 +265,13 @@ const joinGroup = async (req, res) => {
 
     return res
       .status(204)
-      .json(sendAPIResponse(204, "Joined group successfully.", null, null))
+      .json(sendAPIResponse(204, "Gruppe beigetreten.", null, null))
       .end();
   } catch (error) {
     console.log(error);
     return res
       .status(500)
-      .json(sendAPIResponse(500, "Our fault.", null, null))
+      .json(sendAPIResponse(500, "Unser Fehler.", null, null))
       .end();
   }
 };
@@ -256,7 +291,7 @@ const leaveGroup = async (req, res) => {
     if (!group) {
       return res
         .status(404)
-        .json(sendAPIResponse(404, "No group found.", null, null))
+        .json(sendAPIResponse(404, "Keine Gruppe gefunden.", null, null))
         .end();
     }
 
@@ -265,7 +300,14 @@ const leaveGroup = async (req, res) => {
     if (!user) {
       return res
         .status(404)
-        .json(sendAPIResponse(404, "No user found.", null, null))
+        .json(
+          sendAPIResponse(
+            404,
+            "Kein Nutzer steht hinter dieser Id.",
+            null,
+            null
+          )
+        )
         .end();
     }
 
@@ -276,13 +318,13 @@ const leaveGroup = async (req, res) => {
 
     return res
       .status(204)
-      .json(sendAPIResponse(204, "Left group successfully.", null, null))
+      .json(sendAPIResponse(204, "Gruppe wurde verlassen.", null, null))
       .end();
   } catch (error) {
     console.log(error);
     return res
       .status(500)
-      .json(sendAPIResponse(500, "Our fault.", null, null))
+      .json(sendAPIResponse(500, "Unser Fehler.", null, null))
       .end();
   }
 };
@@ -302,19 +344,19 @@ const deleteGroup = async (req, res) => {
     if (!deletedGroup) {
       return res
         .status(404)
-        .json(sendAPIResponse(404, "No group found.", null, null))
+        .json(sendAPIResponse(404, "Keine Gruppe gefunden.", null, null))
         .end();
     }
 
     return res
       .status(204)
-      .json(sendAPIResponse(204, "No Contents", null, null))
+      .json(sendAPIResponse(204, "Gruppe wurde gelöscht.", null, null))
       .end();
   } catch (error) {
     console.log(error);
     return res
       .status(500)
-      .json(sendAPIResponse(500, "Our fault.", null, null))
+      .json(sendAPIResponse(500, "Unser Fehler.", null, null))
       .end();
   }
 };
@@ -334,7 +376,7 @@ const updateGroup = async (req, res) => {
     if (!group) {
       return res
         .status(404)
-        .json(sendAPIResponse(404, "No group found.", null, null))
+        .json(sendAPIResponse(404, "Keine Gruppe gefunden.", null, null))
         .end();
     }
 
@@ -343,7 +385,14 @@ const updateGroup = async (req, res) => {
     if (!name || !creator || !description || !members || !slogan || !city) {
       return res
         .status(400)
-        .json(sendAPIResponse(400, "Bad request.", null, null))
+        .json(
+          sendAPIResponse(
+            400,
+            "Bitte überprüfen Sie Ihren Request Body nochmal",
+            null,
+            null
+          )
+        )
         .end();
     }
     group.name = name;
@@ -357,13 +406,18 @@ const updateGroup = async (req, res) => {
     if (type === "json") {
       return res
         .status(200)
-        .json(sendAPIResponse(200, "Updated group.", group, "json"))
+        .json(sendAPIResponse(200, "Gruppe überarbeitet.", group, "json"))
         .end();
     } else {
       return res
         .status(200)
         .json(
-          sendAPIResponse(200, "Updated group.", { groups: [group] }, "arr")
+          sendAPIResponse(
+            200,
+            "Gruppe wurde überarbeitet.",
+            { groups: [group] },
+            "arr"
+          )
         )
         .end();
     }
@@ -371,7 +425,7 @@ const updateGroup = async (req, res) => {
     console.log(error);
     return res
       .status(500)
-      .json(sendAPIResponse(500, "Our fault.", null, null))
+      .json(sendAPIResponse(500, "unser Fehler.", null, null))
       .end();
   }
 };
