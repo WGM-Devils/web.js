@@ -7,7 +7,7 @@ export default function like(postId) {
     },
     body: JSON.stringify({
       postId,
-      userId: JSON.parse(localStorage.getItem("KlingtGut"))._id,
+      userId: document.cookie.replace("KLINGTGUT.id", ""),
     }),
   })
     .then((res) => res)
