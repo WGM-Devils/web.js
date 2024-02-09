@@ -210,11 +210,12 @@
   width: fit-content;
   font-size: 20px;
   color: white;
-  font-family: "Anton";
+  font-family: "Sofia", sans-serif;
   height: 40px;
   margin-left: 5%;
   border-radius: 5px;
   border: none;
+  padding: 5px;
   background: linear-gradient(147deg, #1f846c 27.03%, #2e56a1 98.33%);
 }
 .post-create button:hover {
