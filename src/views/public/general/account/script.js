@@ -8,7 +8,7 @@ window.onload = () => {
   if (!cookies.includes("KLINGTGUT.id")) return;
 
   fetch(
-    `https://klingt-gut.onrender.com/api/user/get/id=${cookies.replace(
+    `https://klingt-gut.onrender.com/api/users/get/id=${cookies.replace(
       "KLINGTGUT.id=",
       ""
     )}/type=json`,
@@ -22,7 +22,9 @@ window.onload = () => {
   )
     .then((res) => {
       if (res.ok) {
-        return res.json();
+        if (String(res.status).startsWith("2")) {
+          return res.json();
+        }
       }
     })
     .then((data) => {
