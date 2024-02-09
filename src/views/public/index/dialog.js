@@ -1,7 +1,3 @@
-// Imports
-
-import { showSuccess } from "../general/successDialog/script";
-
 // Code
 
 function createPost() {
@@ -66,7 +62,7 @@ function createPost() {
       if (data.ok) {
         document.getElementById("post-creation-title").value = "";
         document.getElementById("post-creation-content").value = "";
-        showSuccess();
+        closeDialog();
       }
     });
 }
