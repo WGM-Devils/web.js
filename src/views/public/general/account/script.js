@@ -6,6 +6,7 @@ window.onload = () => {
 
   const cookies = document.cookie;
   if (!cookies.includes("KLINGTGUT.id")) return;
+  console.log(cookies);
 
   fetch(
     `https://klingt-gut.onrender.com/api/users/get/id=${cookies.replace(
