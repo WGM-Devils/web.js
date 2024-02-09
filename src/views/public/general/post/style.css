@@ -21,8 +21,6 @@
 
 /* Post-Create Dialog */
 
-/* TODO: Figure out why dialog is shown */
-
 .post-create {
   display: none;
 }
