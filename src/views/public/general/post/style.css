@@ -112,7 +112,7 @@
   font-size: 2em;
   font-family: "Sofia", sans-serif;
   background: linear-gradient(147deg, #1f846c 27.03%, #2e56a1 98.33%);
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0;
   font-weight: 700;

@@ -5,7 +5,7 @@ function submitCredentials(type) {
 
   if (type === "login") {
     if (!email.value || !password.value) {
-      return alert("Please fill out all fields.");
+      return alert("Bitte füllen Sie alle Felder aus.");
     }
 
     const data = {
@@ -23,21 +23,22 @@ function submitCredentials(type) {
     })
       .then((res) => {
         if (res.ok) {
-          return res;
+          return res.json();
         }
       })
-      .then((res) => {
-        if (res.ok) {
-          if (!res.json()) return;
-          console.log(res);
-          const user = res.json().response.contents.users[0];
-          localStorage.setItem("KlingtGut", JSON.stringify(user));
+      .then((data) => {
+        if (data.ok) {
+          console.log(data);
+          const user = data.response.contents.users[0];
+          document.cookie = `KLINGTGUT.id=${
+            user._id
+          }; expires=${new Date().setDate(new Date().getDate() + 14)}`;
           return (window.location.href = "https://klingt-gut.onrender.com/");
         }
       });
   } else if (type === "register") {
     if (!email.value || !password.value || !username.value) {
-      return alert("Please fill out all fields.");
+      return alert("Bitte füllen sie alle Felder aus.");
     }
 
     const data = {
@@ -55,14 +56,16 @@ function submitCredentials(type) {
       body: JSON.stringify(data),
     })
       .then((res) => {
-        if (res.json().ok) {
-          return res;
+        if (res.ok) {
+          return res.json();
         }
       })
-      .then((res) => {
-        if (res.json().ok) {
-          const user = res.json().response.contents.users[0];
-          localStorage.setItem("KlingtGut", JSON.stringify(user));
+      .then((data) => {
+        if (data.ok) {
+          const user = data.response.contents.users[0];
+          document.cookie = `KLINGTGUT.id=${
+            user._id
+          }; expires=${new Date().setDate(new Date().getDate() + 14)}`;
           return (window.location.href = "https://klingt-gut.onrender.com/");
         }
       });

@@ -3,12 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home | KlingtGut</title>
+    <title>Suchen | KlingtGut</title>
     <link rel="stylesheet" href="/general/configs/body.css" />
     <link rel="stylesheet" href="/general/navbar/style.css" />
     <link rel="stylesheet" href="/general/configs/fonts.css" />
-    <link rel="stylesheet" href="/index/style.css" />
-    <link rel="stylesheet" href="/general/post/style.css" />
+    <link rel="stylesheet" href="/search/style.css" />
     <link rel="icon" href="/images/klingtgutappscreen.png" />
   </head>
   <body>
@@ -57,7 +56,7 @@
           </div>
           <div class="navbar-link-text">Home</div>
         </div>
-        <div class="navbar-link" onclick="openDiscover()">
+        <div class="navbar-link" onclick="openSearch()">
           <div class="navbar-link-icon">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +74,7 @@
           </div>
           <div class="navbar-link-text">Entdecken</div>
         </div>
-        <div class="navbar-link" onclick="openSearch()">
+        <div class="navbar-link navbar-link-active" onclick="openSearch()">
           <div class="navbar-link-icon">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -92,8 +91,8 @@
           </div>
           <div class="navbar-link-text">Suchen</div>
         </div>
-        <div class="navbar-link navbar-link-active">
-          <div class="navbar-link-icon" onclick="openChats()">
+        <div class="navbar-link" onclick="openChats()">
+          <div class="navbar-link-icon">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="30"
@@ -128,12 +127,44 @@
         </div>
       </div>
       <div class="navbar-logo-container">
-        <img src="/images/klingtgutappscreen.png" alt="Logo" />
+        <img src="/images/klingtgutappscreen.png" alt="" />
       </div>
     </nav>
-    <div class="settings"></div>
+    <div class="discovery">
+      <div class="discovery-searchbar">
+        <div class="searchbar-input-container">
+          <div class="searchbar-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-search"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+              />
+            </svg>
+          </div>
+          <input
+            type="search"
+            placeholder="Suchen..."
+            class="searchbar-input"
+          />
+        </div>
+      </div>
+      <div class="search-content">
+        <div class="search-content-none">
+          <div class="search-content-none-text">Nichts gefunden...</div>
+        </div>
+        <div class="search-content-found">
+          <div class="search-content-found-text">Ergebnisse gefunden</div>
+        </div>
+      </div>
+    </div>
     <script src="/general/navbar/script.js"></script>
     <script src="/general/account/script.js"></script>
-    <script src="/settings/script.js"></script>
+    <script src="/search/script.js"></script>
   </body>
 </html>
