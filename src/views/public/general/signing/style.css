@@ -74,7 +74,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   border: none;
   border-radius: 10px;
-  margin: auto;
+  margin: 20px auto;
+  padding: 15px;
   width: 30%;
   height: 50px;
   font-size: 25px;
