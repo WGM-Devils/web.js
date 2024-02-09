@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background: linear-gradient(147deg, #1f846c 27.03%, #2e56a1 98.33%);
 }
 
 .content-body {
@@ -20,17 +21,29 @@ body {
 .signing-picture-half {
   width: 40%;
   height: 100vh;
-  background: linear-gradient(147deg, #1f846c 27.03%, #2e56a1 98.33%);
+  background: transparent;
 }
 .signing-content-half {
   width: 60%;
   height: 100vh;
-  background-color: white;
+  background-color: transparent;
 }
-.signing-form {
-  width: 80%;
+.signing-form-container {
+  width: 60%;
+  height: 80%;
+  background-color: white;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0px 4px 1px rgba(0, 0, 0, 0.1);
+}
+.signing-form {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: auto;
   flex-direction: column;
 }
@@ -73,7 +86,7 @@ body {
   color: black;
   text-decoration: none;
   text-align: center;
-  margin: 10px auto;
+  margin: 20px auto 0 auto;
   font-family: "Anton", Helvetica, sans-serif;
 }
 .signing-link:hover {
