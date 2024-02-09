@@ -9,7 +9,8 @@ window.onload = () => {
 
   fetch(
     `https://klingt-gut.onrender.com/api/user/get/id=${cookies.replace(
-      "KLINGTGUT.id="
+      "KLINGTGUT.id=",
+      ""
     )}/type=json`,
     {
       method: "GET",
