@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/general/navbar/style.css" />
     <link rel="stylesheet" href="/general/configs/fonts.css" />
     <link rel="stylesheet" href="/index/style.css" />
-    <link rel="stylesheet" href="/general/post/style.css" />
     <link rel="icon" href="/images/klingtgutappscreen.png" />
   </head>
   <body>
@@ -131,9 +130,28 @@
         <img src="/images/klingtgutappscreen.png" alt="" />
       </div>
     </nav>
-    <div class="settings"></div>
+    <div class="discovery">
+      <div class="discovery-searchbar">
+        <div class="searchbar-input-container">
+          <div class="searchbar-icon"></div>
+          <input
+            type="search"
+            placeholder="Suchen..."
+            class="searchbar-input"
+          />
+        </div>
+      </div>
+      <div class="search-content">
+        <div class="search-content-none">
+          <div class="search-content-none-text">Nichts gefunden...</div>
+        </div>
+        <div class="search-content-found">
+          <div class="search-content-found">Ergebnisse gefunden</div>
+        </div>
+      </div>
+    </div>
     <script src="/general/navbar/script.js"></script>
     <script src="/general/account/script.js"></script>
-    <script src="/settings/script.js"></script>
+    <script src="/discovery/script.js"></script>
   </body>
 </html>
