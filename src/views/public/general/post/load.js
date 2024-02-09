@@ -1,8 +1,8 @@
 // Imports
 
-import like from "./like";
+import like from "./like.js";
 
-function create(post) {
+async function create(post) {
   if (!post) return;
 
   const newPost = document.createElement("div");
@@ -26,7 +26,7 @@ function create(post) {
   postUser.appendChild(postUserImg);
   const postUserText = document.createElement("div");
   postUserText.classList.add("post-username");
-  fetch(
+  await fetch(
     `https://klingt-gut.onrender.com/api/users/get/id=${post.user}/type=json`,
     {
       method: "GET",
