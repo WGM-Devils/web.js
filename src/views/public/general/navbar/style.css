@@ -1,6 +1,5 @@
 nav {
   width: 30vh;
-  min-width: 200px;
   height: 100vh;
   background-color: white;
   border-right: 1px solid black;
@@ -94,7 +93,7 @@ nav {
   margin: auto;
 }
 .navbar-link-text {
-  margin: auto 0;
+  margin: auto 5px auto 0;
   font-size: 20px;
   font-family: "Anton", sans-serif;
 }
