@@ -15,6 +15,40 @@ function create(post) {
   title.classList.add("post-title");
   title.innerHTML = post.title;
   postTopbar.appendChild(title);
+  const postTopSep = document.createElement("div");
+  postTopSep.classList.add("post-sep");
+  postTopbar.appendChild(postTopSep);
+  const postUser = document.createElement("div");
+  postUser.classList.add("post-user");
+  const postUserImg = document.createElement("div");
+  postUserImg.classList.add("post-user-img");
+  postUserImg.innerHTML = `<div class="post-user-default"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16"><path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" /><path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/></svg></div>`;
+  postUser.appendChild(postUserImg);
+  const postUserText = document.createElement("div");
+  postUserText.classList.add("post-username");
+  fetch(
+    `https://klingt-gut.onrender.com/api/users/get/id=${post.user}/type=json`,
+    {
+      method: "GET",
+      headers: {
+        Authorization: "KlingtGut",
+        "Content-Type": "application/json",
+      },
+    }
+  )
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+    })
+    .then((data) => {
+      if (data.ok) {
+        postUserText.innerHTML = data.response.contents.users.username;
+      }
+    });
+  postUser.appendChild(postUserText);
+  postTopbar.appendChild(postUser);
+  postContent.appendChild(postTopbar);
   const postDescription = document.createElement("div");
   postDescription.classList.add("post-description");
   postDescription.innerHTML = `<p>${post.content}</p>`;
@@ -59,7 +93,9 @@ function loadPosts() {
       if (!data.ok) return;
 
       const posts = data.response.contents.posts;
-      console.log(posts);
+      posts.forEach((post) => {
+        create(post);
+      });
     });
 }
 window.onload = () => {
