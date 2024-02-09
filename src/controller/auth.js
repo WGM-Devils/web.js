@@ -33,7 +33,7 @@ const login = async (req, res) => {
         .end();
     }
 
-    if (!user.auth.password === password) {
+    if (user.auth.password !== password) {
       return res
         .status(403)
         .json(sendAPIResponse(403, "Passwort ist falsch.", null, null));
