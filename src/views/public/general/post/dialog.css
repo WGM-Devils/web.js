@@ -95,9 +95,6 @@
 .post-create-content {
   width: 90%;
   margin: 10px auto;
-  height: 60%;
-  overflow-x: clip;
-  overflow-y: scroll;
   display: flex;
   flex-direction: column;
 }
