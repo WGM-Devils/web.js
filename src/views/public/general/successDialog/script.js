@@ -7,4 +7,4 @@ function closeSuccess() {
 
 // Exports
 
-export { showSuccess, closeSuccess };
+module.exports = { showSuccess, closeSuccess };
