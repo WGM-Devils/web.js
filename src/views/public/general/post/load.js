@@ -75,6 +75,7 @@ function create(post) {
   postButtons.appendChild(viewsButton);
   postContent.appendChild(postButtons);
   newPost.appendChild(postContent);
+  document.getElementById("post-list").appendChild(newPost);
 }
 function loadPosts() {
   fetch("https://klingt-gut.onrender.com/api/posts/all", {
