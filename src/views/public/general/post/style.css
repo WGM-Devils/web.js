@@ -58,6 +58,7 @@
   font-size: 20px;
   font-family: "Anton", sans-serif;
   margin: auto 20px;
+  user-select: none;
 }
 .post-user {
   height: 50px;
