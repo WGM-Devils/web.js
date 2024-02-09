@@ -1,0 +1,22 @@
+.success-dialog {
+  width: 30%;
+  height: 30%;
+  background-color: white;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  margin: 35vh auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.success-dialog > svg {
+  width: 100px;
+  height: 100px;
+  fill: green;
+  margin: 10px auto;
+}
+.success-dialog > p {
+  font-size: 1.5em;
+  text-align: center;
+  margin: 10px auto;
+  font-family: "Anton", sans-serif;
+}
