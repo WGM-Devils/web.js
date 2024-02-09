@@ -22,6 +22,9 @@ body {
   width: 40%;
   height: 100vh;
   background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .signing-content-half {
   width: 60%;
