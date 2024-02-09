@@ -69,6 +69,17 @@ body {
 .signing-button:hover {
   cursor: pointer;
 }
+.signing-link {
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  margin: 10px auto;
+  font-family: "Anton", Helvetica, sans-serif;
+}
+.signing-link:hover {
+  color: #1f846c;
+  cursor: pointer;
+}
 
 /* Screen Rules */
 

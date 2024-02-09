@@ -122,3 +122,17 @@ nav {
 .navbar-logo-container img {
   height: 60px;
 }
+
+/* Screenrules */
+
+@media (max-width: 750px) {
+  nav {
+    width: fit-content;
+  }
+  .account-item-content {
+    display: none;
+  }
+  .navbar-link-text {
+    display: none;
+  }
+}

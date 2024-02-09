@@ -41,8 +41,7 @@ const login = async (req, res) => {
 
     return res
       .status(200)
-      .cookie("KlingtGut", JSON.stringify(user))
-      .json(sendAPIResponse(200, "Logged in.", null, null))
+      .json(sendAPIResponse(200, "Logged in.", { users: [user] }, "arr"))
       .end();
   } catch (error) {
     console.log(error);
@@ -91,13 +90,11 @@ const register = async (req, res) => {
         password: password,
       },
     });
-    // TODO: Cookies überprüfen und umgestalten, ohne schlechten String
     return res
-      .status(201)
-      .cookie()
+      .status(200)
       .json(
         sendAPIResponse(
-          201,
+          200,
           "User was created.",
           {
             users: [user],

@@ -2,6 +2,8 @@ function create(post) {
   if (!post) return;
 
   const newPost = document.createElement("div");
+  const postButtons = document.createElement("div");
+  const title = document.createElement("div");
 }
 function loadPosts() {
   fetch("https://klingt-gut.onrender.com/api/posts/all", {

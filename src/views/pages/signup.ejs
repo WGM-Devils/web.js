@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login KlingtGut</title>
     <link rel="icon" href="/images/klingtgutappscreen.png" />
+    <link rel="stylesheet" href="/general/configs/fonts.css" />
+    <link rel="stylesheet" href="/general/configs/body.css" />
     <link rel="stylesheet" href="/general/signing/style.css" />
   </head>
   <body>
@@ -12,29 +14,22 @@
       <div class="signing-half signing-content-half">
         <div class="signing-form">
           <div class="signing-form-title">Registrierung</div>
-          <label for="username-input" class="signing-inputlabel"
-            >Nutzername</label
-          >
           <input
             type="text"
             type="text"
-            placeholder="Nutzername"
+            placeholder="IchHeißeWieIchHeiße123"
             class="signing-input input"
             id="username-input"
           />
-          <label for="email-input" class="signing-inputlabel">E-Mail</label>
           <input
-            placeholder="Email"
+            placeholder="mein.name@email.de"
             type="email"
             name="email-input"
             class="signing-input input"
             id="email-input"
           />
-          <label for="password-input" class="signing-inputlabel"
-            >Passwort</label
-          >
           <input
-            placeholder="Passwort"
+            placeholder="SuperSicheresPasswort123!"
             type="password"
             name="password-input"
             class="signing-input input"
@@ -43,6 +38,9 @@
           <button class="signing-button" onclick="submitCredentials('login')">
             Registrieren
           </button>
+          <a href="https://klingt-gut/onrender.com/login" class="signing-link"
+            >Bereits ein Konto? Jetzt anmelden</a
+          >
         </div>
       </div>
       <div class="signing-half signing-picture-half"></div>

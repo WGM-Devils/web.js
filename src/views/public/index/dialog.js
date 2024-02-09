@@ -1,5 +1,5 @@
 window.onload = () => {
-  document.getElementById("post-dia").close();
+  document.getElementById("post-dia").style.display = "none";
 };
 function createPost() {
   const title = document.getElementById("post-creation-title").value;
@@ -30,11 +30,12 @@ function createPost() {
       }
     });
 }
-function closeModal() {
-  document.getElementById("post-dia").close();
+
+// Function to show the post creation dialog
+
+function showDialog() {
+  document.getElementById("post-dia").style.display = "flex";
 }
-document
-  .getElementById("post-dia")
-  .addEventListener("click", (ev) =>
-    document.getElementById("post-dia").close()
-  );
+function closeModal() {
+  document.getElementById("post-dia").style.display = "none";
+}
