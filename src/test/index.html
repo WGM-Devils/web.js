@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="../views/public/general/configs/body.css" />
     <link rel="stylesheet" href="../views/public/general/navbar/style.css" />
     <link rel="stylesheet" href="../views/public/general/configs/fonts.css" />
-    <link rel="stylesheet" href="../views/public/index/style.css" />
-    <link rel="stylesheet" href="../views/public/general/post/style.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../views/public/discover/style.css" />
     <link rel="icon" href="../views/public/images/klingtgutappscreen.png" />
   </head>
   <body>
@@ -41,7 +39,7 @@
       </div>
       <div class="navbar-separator"></div>
       <div class="navbar-links-container">
-        <div class="navbar-link navbar-link-active" onclick="openHome()">
+        <div class="navbar-link" onclick="openHome()">
           <div class="navbar-link-icon">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +56,7 @@
           </div>
           <div class="navbar-link-text">Home</div>
         </div>
-        <div class="navbar-link">
+        <div class="navbar-link navbar-link-active">
           <div class="navbar-link-icon">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -132,9 +130,28 @@
         <img src="../views/public/images/klingtgutappscreen.png" alt="" />
       </div>
     </nav>
-    <div class="settings"></div>
-    <script src="../views/public/general/navbar/script.js"></script>
-    <script src="../views/public/general/account/script.js"></script>
-    <script src="../views/public/settings/script.js"></script>
+    <div class="discovery">
+      <div class="discovery-searchbar">
+        <div class="searchbar-input-container">
+          <div class="searchbar-icon"></div>
+          <input
+            type="search"
+            placeholder="Suchen..."
+            class="searchbar-input"
+          />
+        </div>
+      </div>
+      <div class="search-content">
+        <div class="search-content-none">
+          <div class="search-content-none-text">Nichts gefunden...</div>
+        </div>
+        <div class="search-content-found">
+          <div class="search-content-found">Ergebnisse gefunden</div>
+        </div>
+      </div>
+    </div>
+    <script src="../views/public//general/navbar/script.js"></script>
+    <script src="../views/public//general/account/script.js"></script>
+    <script src="../views/public/discover/script.js"></script>
   </body>
 </html>
