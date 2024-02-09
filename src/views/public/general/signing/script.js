@@ -5,7 +5,7 @@ function submitCredentials(type) {
 
   if (type === "login") {
     if (!email.value || !password.value) {
-      return alert("Please fill out all fields.");
+      return alert("Bitte füllen Sie alle Felder aus.");
     }
 
     const data = {
@@ -38,7 +38,7 @@ function submitCredentials(type) {
       });
   } else if (type === "register") {
     if (!email.value || !password.value || !username.value) {
-      return alert("Please fill out all fields.");
+      return alert("Bitte füllen sie alle Felder aus.");
     }
 
     const data = {
