@@ -25,6 +25,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  > img {
+    margin-left: 25%;
+  }
 }
 .signing-content-half {
   width: 60%;
