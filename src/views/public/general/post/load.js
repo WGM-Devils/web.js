@@ -43,7 +43,8 @@ async function create(post) {
     })
     .then((data) => {
       if (data.ok) {
-        postUserText.innerHTML = data.response.contents.users[0].username;
+        console.log(data.response.contents.users[0].username);
+        postUserText.innerHTML = "";
       }
     });
   postUser.appendChild(postUserText);
